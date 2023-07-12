@@ -313,7 +313,7 @@ exit;
 function ds_nopic_des()
 {
 if (get_theme_mod('ds_nopic')) { } else {
-echo '<div class="nopic_des"><p>请前往 【WP后台】-【外观】-【自定义】-【HUiTHEME综合设置】<br>对默认缩略图进行设置，此为必设选项。</p><a class="" href="'.get_option('home').'/wp-admin/customize.php">立即前往</a></div>';
+echo '<div class="nopic_des"><p>请前往 【WP后台】-【外观】-【自定义】-【HUiTHEME 缩略图】<br>对默认缩略图进行设置，此为必设选项。</p><a class="" href="'.get_option('home').'/wp-admin/customize.php">立即前往</a></div>';
 }
 }
 
