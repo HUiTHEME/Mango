@@ -86,19 +86,6 @@ $wp_customize->add_control('ds_beian', array(
 ));
 
 
-////////////////////////////////////////////////////////one setting
-$wp_customize->add_setting('ds_nopic', array(
-	'default'		=> '',
-	'transport'		=> 'refresh', //默认值refresh
-));
-$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'ds_nopic',array(
-	'label'      	=> '默认缩略图',
-	'section'    	=> 'ds_setting_index',//设置组
-	'settings'   	=> 'ds_nopic',
-	'description'	=> '文章无图情况下的默认缩略图',
-))
-);
-
 
 ////////////////////////////////////////////////////////one setting
  $wp_customize->add_setting('ds_sticky_top', array(
@@ -224,4 +211,27 @@ $wp_customize->add_control('ds_seo_fgf', array(
 ));
 
 
+////////////////////////////////////////////////////////adding section in wordpress customizer
+$wp_customize->add_section('ds_setting_pic', array(
+	'title'			=> 'HUiTHEME 缩略图',
+	'description'	=> '暂时不支持外链图片。在文章编辑时，设置上传图片的尺寸为全尺寸，即100%。同时前往<a href="/wp-admin/options-media.php" target="_blank">[媒体]</a>设置里，将大尺寸的宽和高都设置为0',
+));
+
+////////////////////////////////////////////////////////one setting
+$wp_customize->add_setting('ds_nopic', array(
+	'default'		=> '',
+	'transport'		=> 'refresh', //默认值refresh
+));
+$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'ds_nopic',array(
+	'label'      	=> '默认缩略图',
+	'section'    	=> 'ds_setting_pic',//设置组
+	'settings'   	=> 'ds_nopic',
+	'description'	=> '文章无图情况下的默认缩略图',
+))
+);
+
+
 }
+
+
+
