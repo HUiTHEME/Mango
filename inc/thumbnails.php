@@ -17,6 +17,15 @@ add_filter('image_size_names_choose', 'hui_remove_image_size');
 add_filter('big_image_size_threshold', '__return_false');
 
 
+//干预修改Large尺寸设定
+function modify_large_thumbnail_size() {
+    update_option('large_size_w', 0);
+    update_option('large_size_h', 0);
+}
+// 在主题激活时调用修改函数
+add_action('after_setup_theme', 'modify_large_thumbnail_size');
+
+
 //添加特色缩略图支持
 if ( function_exists('add_theme_support') )add_theme_support('post-thumbnails');
 
@@ -172,8 +181,8 @@ class Thumbnails {
                 }
             }
         } else {
-            $width = $size[0] ?? '';  // bug del ?? ''
-            $height = $size[1] ?? ''; // bug del ?? ''
+            $width = $size[0] ?? '' ;  // 低版本php报错，请删除 ?? ''
+            $height = $size[1] ?? '' ; // 低版本php报错，请删除 ?? ''
             if (isset($size[2])) {
                 if ($size[2]) {
                     $crop = array('center', 'center');
